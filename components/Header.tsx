@@ -69,13 +69,13 @@ export default function Header() {
 
             {/* Right actions */}
             <div className="flex items-center gap-3">
-              {/* Language switcher */}
-              <div className="flex items-center gap-0.5 rounded-full border border-[rgba(255,255,255,0.1)] p-0.5 sm:gap-1 sm:p-1">
+              {/* Language switcher — desktop only */}
+              <div className="hidden lg:flex items-center gap-1 rounded-full border border-[rgba(255,255,255,0.1)] p-1">
                 {(["ua", "en"] as const).map((l) => (
                   <button
                     key={l}
                     onClick={() => setLang(l)}
-                    className={`px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider transition-all duration-200 ${
+                    className={`px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 ${
                       lang === l
                         ? "gradient-bg text-white shadow-sm"
                         : "text-muted hover:text-text"
@@ -128,6 +128,29 @@ export default function Header() {
                   {link.label}
                 </a>
               ))}
+
+              {/* Language switcher inside menu */}
+              <div className="flex items-center gap-2 pt-4">
+                <span className="text-xs uppercase tracking-[0.2em] text-muted">
+                  Lang
+                </span>
+                <div className="flex items-center gap-1 rounded-full border border-[rgba(255,255,255,0.1)] p-1">
+                  {(["ua", "en"] as const).map((l) => (
+                    <button
+                      key={l}
+                      onClick={() => setLang(l)}
+                      className={`px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-200 ${
+                        lang === l
+                          ? "gradient-bg text-white shadow-sm"
+                          : "text-muted hover:text-text"
+                      }`}
+                    >
+                      {l}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
               <button
                 onClick={() => {
                   setMenuOpen(false);
