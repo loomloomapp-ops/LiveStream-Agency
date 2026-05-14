@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import {
   GraduationCap,
   Wrench,
@@ -23,15 +24,27 @@ export default function BentoGallery() {
 
   return (
     <div className="bento-wrap hidden md:flex md:flex-col">
-      <div className="relative w-full px-6 text-center z-10 flex-shrink-0">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" as const }}
+        viewport={{ once: true, margin: "-80px" }}
+        className="relative w-full px-6 text-center z-10 flex-shrink-0"
+      >
         <span className="section-label">{s.label}</span>
         <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-none">
           {s.headline1}{" "}
           <span className="gradient-text">{s.headline2}</span>
         </h2>
-      </div>
+      </motion.div>
 
-      <div className="bento-grid">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" as const }}
+        viewport={{ once: true, margin: "-80px" }}
+        className="bento-grid"
+      >
         {s.items.map((item, i) => {
           const Icon = ICONS[i % ICONS.length];
           const color = ICON_COLORS[i % ICON_COLORS.length];
@@ -118,7 +131,7 @@ export default function BentoGallery() {
             </div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 }

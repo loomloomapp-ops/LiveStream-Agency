@@ -6,7 +6,7 @@ import { ArrowRight, HouseLine } from "@phosphor-icons/react";
 import { useLang } from "@/context/LangContext";
 import { useModal } from "@/context/ModalContext";
 
-const HERO_INTRO_DELAY = 2.7; // matches Preloader minDuration + exit
+const HERO_INTRO_DELAY = 0.9; // matches Preloader minDuration (0.7s) + start of exit fade
 
 const fadeUpVariants = {
   hidden: { opacity: 0, y: 30 },
