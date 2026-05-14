@@ -1,8 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   GraduationCap,
   Wrench,
@@ -10,10 +7,6 @@ import {
   UserCircle,
 } from "@phosphor-icons/react";
 import { useLang } from "@/context/LangContext";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const ICONS = [GraduationCap, Wrench, TrendUp, UserCircle];
 const ACCENTS = [
@@ -28,63 +21,9 @@ export default function BentoGallery() {
   const { t } = useLang();
   const s = t.services;
 
-  const wrapRef = useRef<HTMLDivElement | null>(null);
-  const gridRef = useRef<HTMLDivElement | null>(null);
-  const glowRef = useRef<HTMLDivElement | null>(null);
-  const headingRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const wrap = wrapRef.current;
-    const grid = gridRef.current;
-    if (!wrap || !grid) return;
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: wrap,
-          start: "top top",
-          end: "+=120%",
-          scrub: true,
-          pin: true,
-          anticipatePin: 1,
-        },
-      });
-
-      tl.fromTo(
-        grid,
-        { scale: 0.08, opacity: 0.4, filter: "blur(8px)" },
-        { scale: 1, opacity: 1, filter: "blur(0px)", ease: "power2.out" }
-      );
-
-      if (glowRef.current) {
-        tl.fromTo(
-          glowRef.current,
-          { scale: 1, opacity: 0.9 },
-          { scale: 4, opacity: 0, ease: "power2.out" },
-          0
-        );
-      }
-
-      if (headingRef.current) {
-        tl.fromTo(
-          headingRef.current,
-          { y: 40, opacity: 0 },
-          { y: 0, opacity: 1, ease: "power2.out" },
-          0
-        );
-      }
-    }, wrap);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <div ref={wrapRef} className="bento-wrap hidden md:flex md:flex-col">
-      {/* Heading at top */}
-      <div
-        ref={headingRef}
-        className="relative w-full px-6 text-center z-10 flex-shrink-0"
-      >
+    <div className="bento-wrap hidden md:flex md:flex-col">
+      <div className="relative w-full px-6 text-center z-10 flex-shrink-0">
         <span className="section-label">{s.label}</span>
         <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-none">
           {s.headline1}{" "}
@@ -92,24 +31,7 @@ export default function BentoGallery() {
         </h2>
       </div>
 
-      {/* Central glow that fades as grid expands */}
-      <div
-        ref={glowRef}
-        className="pointer-events-none absolute left-1/2 top-[60%] -translate-x-1/2 -translate-y-1/2 rounded-full"
-        style={{
-          width: 320,
-          height: 320,
-          background:
-            "radial-gradient(circle, rgba(217,70,239,0.55) 0%, rgba(124,58,237,0.2) 40%, transparent 75%)",
-          filter: "blur(20px)",
-        }}
-      />
-
-      <div
-        ref={gridRef}
-        className="bento-grid"
-        style={{ transformOrigin: "center center", willChange: "transform" }}
-      >
+      <div className="bento-grid">
         {s.items.map((item, i) => {
           const Icon = ICONS[i % ICONS.length];
           const color = ICON_COLORS[i % ICON_COLORS.length];

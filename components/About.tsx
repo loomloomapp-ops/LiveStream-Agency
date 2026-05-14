@@ -338,7 +338,7 @@ export default function About() {
               </div>
               <div>
                 <p className="text-xs font-semibold text-text">{HUB_TITLES[i]}</p>
-                <p className="text-[11px] text-muted mt-0.5 leading-snug line-clamp-2">{HUB_DESCS[i]}</p>
+                <p className="text-[11px] text-muted mt-0.5 leading-snug">{HUB_DESCS[i]}</p>
               </div>
             </div>
           ))}

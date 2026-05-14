@@ -11,7 +11,7 @@ interface PreloaderProps {
 }
 
 export default function Preloader({
-  minDuration = 2000,
+  minDuration = 700,
   statuses = ["SIGNAL LOCKING", "SYNCING STREAM", "BROADCAST READY"],
   finalMessage = "GOING LIVE",
   brandLead = "LiveStream",
@@ -34,7 +34,7 @@ export default function Preloader({
           setHidden(true);
           document.documentElement.classList.add("preloader-done");
           document.documentElement.classList.remove("preloader-exiting");
-        }, 750);
+        }, 400);
       }, wait);
     };
 
@@ -119,7 +119,7 @@ const PRELOADER_CSS = `
   --pl-live: #ef4444;
   --pl-text: rgba(255,255,255,0.92);
   --pl-muted: rgba(255,255,255,0.45);
-  --pl-exit: 0.7s;
+  --pl-exit: 0.4s;
 
   position: fixed;
   inset: 0;
@@ -130,7 +130,7 @@ const PRELOADER_CSS = `
   justify-content: center;
   overflow: hidden;
   isolation: isolate;
-  animation: pl-fade-in 0.4s ease-out both;
+  animation: pl-fade-in 0.2s ease-out both;
 }
 
 .preloader::before {

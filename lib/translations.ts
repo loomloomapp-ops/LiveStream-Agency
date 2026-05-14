@@ -137,8 +137,8 @@ export const translations = {
     benefits: {
       label: "Переваги",
       headline1: "Чому обирають",
-      headline2: "LiveStream Agency",
-      loopWords: ["Дохід", "Свободу", "Підтримку", "Зростання", "Стабільність", "LiveStream Agency"],
+      headline2: "нас",
+      loopWords: ["Дохід", "Свободу", "Підтримку", "Зростання", "Стабільність", "Команду"],
       items: [
         { icon: "💸", title: "Дохід з першого тижня", body: "Перші виплати через 2 тижні. Без місяців очікування." },
         { icon: "🏠", title: "Повністю дистанційно", body: "Твій графік, твій дім. Ніяких переїздів і офісів." },
@@ -464,8 +464,8 @@ export const translations = {
     benefits: {
       label: "Advantages",
       headline1: "Why people",
-      headline2: "choose LiveStream Agency",
-      loopWords: ["Income", "Freedom", "Support", "Growth", "Stability", "LiveStream Agency"],
+      headline2: "choose us",
+      loopWords: ["Income", "Freedom", "Support", "Growth", "Stability", "Team"],
       items: [
         { icon: "💸", title: "Income from week one", body: "First payments in 2 weeks. No months of waiting." },
         { icon: "🏠", title: "Fully remote", body: "Your schedule, your home. No relocations or offices." },
