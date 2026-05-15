@@ -146,19 +146,19 @@ export default function HowItWorks() {
       {/* ── Desktop: vertical strip reveal ── */}
       <div
         ref={heroRef}
-        className="hidden md:flex flex-col relative overflow-hidden"
+        className="hidden md:block relative h-[68vh] min-h-[620px] overflow-hidden"
       >
-        {/* Heading row */}
+        {/* Heading inside strip 1 */}
         <motion.div
-          initial={{ opacity: 0, y: -16 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -24 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" as const }}
           viewport={{ once: true }}
-          className="wrap pt-16 pb-10 flex items-end justify-between gap-8"
+          className="absolute top-12 left-[5vw] right-[5vw] z-20 pointer-events-none flex items-start justify-between gap-8"
         >
-          <div className="max-w-2xl">
+          <div className="max-w-xl">
             <span className="section-label">{h.label}</span>
-            <h2 className="mt-3 text-4xl xl:text-5xl font-bold tracking-tighter leading-none">
+            <h2 className="mt-3 text-4xl xl:text-5xl font-bold tracking-tighter leading-[1.05]">
               {h.headline1}{" "}
               <span className="gradient-text">{h.headline2}</span>
             </h2>
@@ -166,14 +166,17 @@ export default function HowItWorks() {
               Чотири кроки від заявки до першого доходу. Прозоро і без надлишків.
             </p>
           </div>
-          <button onClick={openModal} className="btn-primary flex-shrink-0">
+          <button
+            onClick={openModal}
+            className="btn-primary flex-shrink-0 pointer-events-auto"
+          >
             {t.nav.apply}
             <ArrowRight size={16} weight="bold" />
           </button>
         </motion.div>
 
         {/* Vertical strips */}
-        <div className="relative grid grid-cols-4 h-[42vh] min-h-[380px]">
+        <div className="absolute inset-0 grid grid-cols-4">
           {h.steps.map((step, i) => {
             const Icon = STEP_ICONS[i];
             const color = STEP_COLORS[i];
