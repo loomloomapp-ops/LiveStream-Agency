@@ -62,16 +62,6 @@ export default function ApplicationSection() {
               ))}
             </div>
 
-            {/* 18+ notice */}
-            <div
-              className="mt-8 p-4 rounded-xl flex items-start gap-3"
-              style={{ background: "rgba(248,113,113,0.06)", border: "1px solid rgba(248,113,113,0.2)" }}
-            >
-              <span className="text-lg mt-0.5" style={{ color: "#f87171" }}>⚠️</span>
-              <p className="text-sm leading-relaxed" style={{ color: "#f87171" }}>
-                {t.age18notice}
-              </p>
-            </div>
           </motion.div>
 
           {/* Right: form */}

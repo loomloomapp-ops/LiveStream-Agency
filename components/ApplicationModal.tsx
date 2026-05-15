@@ -64,14 +64,6 @@ export default function ApplicationModal() {
                 </button>
               </div>
 
-              {/* 18+ warning */}
-              <div
-                className="mb-5 px-3 py-2 rounded-lg flex items-center gap-2"
-                style={{ background: "rgba(248,113,113,0.07)", border: "1px solid rgba(248,113,113,0.2)" }}
-              >
-                <span style={{ color: "#f87171", fontSize: 13 }}>⚠️ {t.age18notice}</span>
-              </div>
-
               <FormFields onSuccess={closeModal} compact />
             </div>
           </motion.div>

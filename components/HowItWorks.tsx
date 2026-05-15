@@ -146,7 +146,7 @@ export default function HowItWorks() {
       {/* ── Desktop: vertical strip reveal ── */}
       <div
         ref={heroRef}
-        className="hidden md:block relative h-screen overflow-hidden"
+        className="hidden md:block relative h-[55vh] min-h-[520px] overflow-hidden"
       >
         {/* Heading top-left */}
         <motion.div
@@ -154,20 +154,20 @@ export default function HowItWorks() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" as const }}
           viewport={{ once: true }}
-          className="absolute top-[8vh] left-[5vw] z-20 max-w-md pointer-events-none"
+          className="absolute top-[6vh] left-[5vw] z-20 max-w-md pointer-events-none"
         >
           <span className="section-label">{h.label}</span>
-          <h2 className="mt-4 text-5xl xl:text-6xl font-bold tracking-tighter leading-none">
+          <h2 className="mt-3 text-4xl xl:text-5xl font-bold tracking-tighter leading-none">
             {h.headline1}
             <br />
             <span className="gradient-text">{h.headline2}</span>
           </h2>
-          <p className="mt-5 text-muted text-base leading-relaxed max-w-sm">
+          <p className="mt-4 text-muted text-sm leading-relaxed max-w-sm">
             Чотири кроки від заявки до першого доходу. Прозоро і без надлишків.
           </p>
           <button
             onClick={openModal}
-            className="btn-primary mt-7 pointer-events-auto"
+            className="btn-primary mt-5 pointer-events-auto"
           >
             {t.nav.apply}
             <ArrowRight size={16} weight="bold" />
@@ -210,12 +210,12 @@ export default function HowItWorks() {
                 />
 
                 {/* Content */}
-                <div className="relative z-10 h-full flex flex-col justify-end p-7 xl:p-10">
+                <div className="relative z-10 h-full flex flex-col justify-end p-6 xl:p-8">
                   {/* Watermark number */}
                   <div
-                    className="font-bold leading-none tracking-tighter mb-4 select-none"
+                    className="font-bold leading-none tracking-tighter mb-3 select-none"
                     style={{
-                      fontSize: "clamp(80px, 11vw, 180px)",
+                      fontSize: "clamp(56px, 6vw, 100px)",
                       color: `${color}28`,
                     }}
                   >
@@ -223,26 +223,26 @@ export default function HowItWorks() {
                   </div>
 
                   <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
+                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-3"
                     style={{
                       background: `linear-gradient(135deg, ${color}30, ${color}0a)`,
                       border: `1px solid ${color}55`,
                     }}
                   >
-                    <Icon size={24} weight="fill" style={{ color }} />
+                    <Icon size={20} weight="fill" style={{ color }} />
                   </div>
 
                   <span
-                    className="text-[11px] font-bold tracking-[0.25em] uppercase mb-2"
+                    className="text-[10px] font-bold tracking-[0.25em] uppercase mb-1.5"
                     style={{ color }}
                   >
                     {h.stepLabel} {step.num}
                   </span>
 
-                  <h3 className="text-2xl xl:text-3xl font-bold text-text leading-tight mb-3 tracking-tight">
+                  <h3 className="text-lg xl:text-xl font-bold text-text leading-tight mb-2 tracking-tight">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-muted leading-relaxed">
+                  <p className="text-xs xl:text-sm text-muted leading-relaxed">
                     {step.body}
                   </p>
                 </div>

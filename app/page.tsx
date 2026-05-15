@@ -4,7 +4,6 @@ import TrustStrip from "@/components/TrustStrip";
 import About from "@/components/About";
 import WhoIsItFor from "@/components/WhoIsItFor";
 import HowItWorks from "@/components/HowItWorks";
-import Benefits from "@/components/Benefits";
 import Cases from "@/components/Cases";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
@@ -24,7 +23,6 @@ export default function Home() {
         <About />
         <WhoIsItFor />
         <HowItWorks />
-        <Benefits />
         <Cases />
         <Testimonials />
         <FAQ />
