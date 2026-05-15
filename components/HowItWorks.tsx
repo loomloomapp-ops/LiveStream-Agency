@@ -146,36 +146,34 @@ export default function HowItWorks() {
       {/* ── Desktop: vertical strip reveal ── */}
       <div
         ref={heroRef}
-        className="hidden md:block relative h-[55vh] min-h-[520px] overflow-hidden"
+        className="hidden md:flex flex-col relative overflow-hidden"
       >
-        {/* Heading top-left */}
+        {/* Heading row */}
         <motion.div
-          initial={{ opacity: 0, x: -24 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: -16 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" as const }}
           viewport={{ once: true }}
-          className="absolute top-[6vh] left-[5vw] z-20 max-w-md pointer-events-none"
+          className="wrap pt-16 pb-10 flex items-end justify-between gap-8"
         >
-          <span className="section-label">{h.label}</span>
-          <h2 className="mt-3 text-4xl xl:text-5xl font-bold tracking-tighter leading-none">
-            {h.headline1}
-            <br />
-            <span className="gradient-text">{h.headline2}</span>
-          </h2>
-          <p className="mt-4 text-muted text-sm leading-relaxed max-w-sm">
-            Чотири кроки від заявки до першого доходу. Прозоро і без надлишків.
-          </p>
-          <button
-            onClick={openModal}
-            className="btn-primary mt-5 pointer-events-auto"
-          >
+          <div className="max-w-2xl">
+            <span className="section-label">{h.label}</span>
+            <h2 className="mt-3 text-4xl xl:text-5xl font-bold tracking-tighter leading-none">
+              {h.headline1}{" "}
+              <span className="gradient-text">{h.headline2}</span>
+            </h2>
+            <p className="mt-4 text-muted text-sm leading-relaxed max-w-md">
+              Чотири кроки від заявки до першого доходу. Прозоро і без надлишків.
+            </p>
+          </div>
+          <button onClick={openModal} className="btn-primary flex-shrink-0">
             {t.nav.apply}
             <ArrowRight size={16} weight="bold" />
           </button>
         </motion.div>
 
         {/* Vertical strips */}
-        <div className="absolute inset-0 grid grid-cols-4">
+        <div className="relative grid grid-cols-4 h-[42vh] min-h-[380px]">
           {h.steps.map((step, i) => {
             const Icon = STEP_ICONS[i];
             const color = STEP_COLORS[i];
