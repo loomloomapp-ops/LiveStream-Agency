@@ -4,6 +4,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "@phosphor-icons/react";
 import { useLang } from "@/context/LangContext";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ApplicationModal from "@/components/ApplicationModal";
 
 interface Section {
   title: string;
@@ -144,7 +147,9 @@ export default function PrivacyPage() {
   const c = CONTENT[lang];
 
   return (
-    <main className="min-h-screen bg-bg py-20 md:py-28">
+    <>
+    <Header />
+    <main className="min-h-screen bg-bg pt-28 pb-20 md:pt-36 md:pb-28">
       <div className="wrap max-w-3xl">
         <Link
           href="/"
@@ -197,5 +202,8 @@ export default function PrivacyPage() {
         </motion.div>
       </div>
     </main>
+    <Footer />
+    <ApplicationModal />
+    </>
   );
 }

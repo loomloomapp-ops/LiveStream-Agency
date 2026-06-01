@@ -26,11 +26,11 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { label: t.nav.about, href: "#about" },
-    { label: t.nav.services, href: "#services" },
-    { label: t.nav.howItWorks, href: "#how" },
-    { label: t.nav.cases, href: "#cases" },
-    { label: t.nav.faq, href: "#faq" },
+    { label: t.nav.about, href: "/#about" },
+    { label: t.nav.services, href: "/#services" },
+    { label: t.nav.howItWorks, href: "/#how" },
+    { label: t.nav.cases, href: "/#cases" },
+    { label: t.nav.faq, href: "/#faq" },
   ];
 
   return (
@@ -47,7 +47,7 @@ export default function Header() {
         >
           <div className="wrap flex items-center justify-between h-16 md:h-18">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2 flex-shrink-0">
+            <a href="/" className="flex items-center gap-2 flex-shrink-0">
               <span className="live-dot" />
               <span className="text-text font-bold text-base sm:text-lg tracking-tight">
                 LiveStream<span className="hidden sm:inline"> Agency</span>
