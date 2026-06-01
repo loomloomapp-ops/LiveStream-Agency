@@ -59,24 +59,6 @@ const NODES = [
   },
 ];
 
-const HUB_TITLES = [
-  "Навчання з нуля",
-  "Просування",
-  "Виплати",
-  "Особистий менеджер",
-  "Підтримка 24/7",
-  "Спільнота",
-];
-
-const HUB_DESCS = [
-  "Відеоуроки, живі сесії та ментор від першого дня. Без досвіду — норма.",
-  "Стратегія контенту, SEO для стримів і крос-промоція з першого тижня.",
-  "Виплати кожні 2 тижні. Прозора схема, без затримок і прихованих відсотків.",
-  "Один менеджер — один стример. Завжди на зв'язку, допомагає з будь-яким питанням.",
-  "Технічний відділ і особистий куратор доступні цілодобово, 7 днів на тиждень.",
-  "Закрита спільнота стримерів, досвід і підтримка від колег по команді.",
-];
-
 const R = 270;
 const CX = 380;
 const CY = 380;
@@ -244,10 +226,10 @@ export default function About() {
                       className="px-3 text-center"
                     >
                       <p className="text-sm font-bold text-text leading-snug">
-                        {HUB_TITLES[active]}
+                        {a.hubTitles[active]}
                       </p>
                       <p className="text-[11px] text-muted mt-1.5 leading-snug">
-                        {HUB_DESCS[active]}
+                        {a.hubDescs[active]}
                       </p>
                     </motion.div>
                   )}
@@ -292,7 +274,7 @@ export default function About() {
                     className="text-xs font-semibold mt-2 text-center leading-tight"
                     style={{ color: isActive ? n.color : "rgba(255,255,255,0.45)", transition: "color 0.25s", maxWidth: 100 }}
                   >
-                    {HUB_TITLES[i]}
+                    {a.hubTitles[i]}
                   </span>
                 </motion.div>
               );
@@ -319,7 +301,7 @@ export default function About() {
               <path d="M12 5v.01M12 8a4 4 0 014 4v5a2 2 0 01-2 2H10a2 2 0 01-2-2v-5a4 4 0 014-4z" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" strokeLinecap="round"/>
               <circle cx="12" cy="10" r="1.5" fill="rgba(217,70,239,0.7)"/>
             </motion.svg>
-            <span className="text-xs text-muted">Наведи мишку на будь-який елемент</span>
+            <span className="text-xs text-muted">{a.hint}</span>
           </div>
         </motion.div>
 
@@ -337,8 +319,8 @@ export default function About() {
                 <n.Icon size={18} weight="fill" style={{ color: n.color }} />
               </div>
               <div>
-                <p className="text-xs font-semibold text-text">{HUB_TITLES[i]}</p>
-                <p className="text-[11px] text-muted mt-0.5 leading-snug">{HUB_DESCS[i]}</p>
+                <p className="text-xs font-semibold text-text">{a.hubTitles[i]}</p>
+                <p className="text-[11px] text-muted mt-0.5 leading-snug">{a.hubDescs[i]}</p>
               </div>
             </div>
           ))}

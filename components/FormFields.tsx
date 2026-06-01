@@ -46,6 +46,7 @@ export default function FormFields({ onSuccess, compact = false }: Props) {
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const set = (key: keyof FormState, value: string | boolean) =>
     setForm((p) => ({ ...p, [key]: value }));
@@ -67,10 +68,27 @@ export default function FormFields({ onSuccess, compact = false }: Props) {
     e.preventDefault();
     if (!validate()) return;
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setSubmitting(false);
-    setSuccess(true);
-    if (onSuccess) setTimeout(onSuccess, 3000);
+    setSubmitError(null);
+    try {
+      const res = await fetch("/api/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          age: form.age,
+          city: form.city,
+          gender: form.gender,
+          contact: form.contact,
+        }),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      setSuccess(true);
+      if (onSuccess) setTimeout(onSuccess, 3000);
+    } catch {
+      setSubmitError(f.errors.submit);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (success) {
@@ -206,7 +224,7 @@ export default function FormFields({ onSuccess, compact = false }: Props) {
           />
           <span className="text-sm text-muted leading-snug">
             {f.checkPrivacy}
-            <a href="#" className="underline hover:text-accent transition-colors ml-0.5" style={{ color: "#d946ef" }}>
+            <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-accent transition-colors ml-0.5" style={{ color: "#d946ef" }}>
               {f.privacyLink}
             </a>
           </span>
@@ -239,6 +257,12 @@ export default function FormFields({ onSuccess, compact = false }: Props) {
           </>
         )}
       </motion.button>
+
+      {submitError && (
+        <span className="text-xs text-center" style={{ color: "#f87171" }}>
+          {submitError}
+        </span>
+      )}
     </form>
   );
 }
