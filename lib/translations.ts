@@ -326,7 +326,7 @@ export const translations = {
       ],
       contactsTitle: "Контакти",
       email: "hello@livestream.agency",
-      telegram: "@livestream_agency",
+      telegram: "@Noir_media_ua",
       socialsTitle: "Соцмережі",
       docsTitle: "Документи",
       docs: [
@@ -669,7 +669,7 @@ export const translations = {
       ],
       contactsTitle: "Contacts",
       email: "hello@livestream.agency",
-      telegram: "@livestream_agency",
+      telegram: "@Noir_media_ua",
       socialsTitle: "Social",
       docsTitle: "Documents",
       docs: [

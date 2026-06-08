@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useLang } from "@/context/LangContext";
-import { TelegramLogo, InstagramLogo, YoutubeLogo, TiktokLogo } from "@phosphor-icons/react";
+import { TelegramLogo, InstagramLogo } from "@phosphor-icons/react";
 
 export default function Footer() {
   const { t } = useLang();
@@ -65,10 +65,8 @@ export default function Footer() {
             <p className="text-xs font-bold uppercase tracking-widest text-muted mb-4 mt-6">{f.socialsTitle}</p>
             <div className="flex gap-3">
               {[
-                { Icon: TelegramLogo, href: "#" },
-                { Icon: InstagramLogo, href: "#" },
-                { Icon: TiktokLogo, href: "#" },
-                { Icon: YoutubeLogo, href: "#" },
+                { Icon: TelegramLogo, href: "https://t.me/Noir_media_ua" },
+                { Icon: InstagramLogo, href: "https://www.instagram.com/noir_agency.ua/" },
               ].map(({ Icon, href }) => (
                 <a
                   key={href + Icon.name}
